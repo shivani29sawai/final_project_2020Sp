@@ -58,7 +58,6 @@ def sector_dataframes(finaldf):
     privateNP = finaldf[finaldf['control'] == 'Private not-for-profit']
     return public, privateP, privateNP
 
-
 def calc(df, col1, col2):
     """
     Returns a list of column by performing calculations.
@@ -83,51 +82,60 @@ def calc_mean(df1, df2, df3, col1, col2, col3):
     :param col1: Column from data frame 1.
     :param col2: Column from data frame 2.
     :param col3: Column from data frame 3.
-    :return names: Returns a variable which has 3 names to be used for graph.
-    :return values: Returns values of mean to be used in graph.
+    :return p1: Returns mean of column of data frame 1.
+    :return p2: Returns mean of column of data frame 2.
+    :return p3: Returns mean of column of data frame 3.
+
+    >>> calc_mean(finaldf, finaldf, finaldf, 'F.Undergrad', 'P.Undergrad', 'Accept')
+    (3342.964125560538, 758.5717488789238, 1938.3878923766815)
+
+    >>> calc_mean(finaldf, public, privateP, 'TOT_ENROLL', 'TOT_ENROLL', 'TOT_ENROLL')
+    (7051.206278026906, 16688.3125, 3613.6)
     """
-    global names
-    global values
+    global p1
+    global p2
+    global p3
     p1 = df1[col1].mean()
     p2 = df2[col2].mean()
     p3 = df3[col3].mean()
+    return p1, p2, p3
+
+def graph(p1, p2, p3, ylab, color1, color2, color3):
+    """
+    Returns a bar graph of 3 variables
+    :param p1: Vairiable 1.
+    :param p2: Vairiable 2.
+    :param p3: Vairiable 3.
+    :param ylab: Label for y axis of graph
+    :param color1: color for variable 1.
+    :param color2: color for variable 2.
+    :param color3: color for variable 3.
+    :return: Returns a bar graph of 3 variables
+    """
     names = ('Public', 'Private for profit', 'Private for non profit')
     values = (p1, p2, p3)
-    return names, values
-
-if '__name__' == '__main__':
-    open_file("C:/Users/ssawai2/Desktop/Final/Colleges_and_Universities.csv","C:/Users/ssawai2/Desktop/Final/cc_institution_details.csv", "C:/Users/ssawai2/Desktop/Final/College_Data.csv")
-    # Hypothesis1
-    # emp_rate
-    finaldf = finaldf.astype({'TOT_ENROLL': float, 'TOT_EMP': float})
-
-    calc(finaldf, 'TOT_ENROLL', 'TOT_EMP')
-    finaldf.insert(3, 'Emp_Rate', new_col)
-    sector_dataframes(finaldf)
-    calc_mean(public, privateNP, privateP, 'Emp_Rate', 'Emp_Rate', 'Emp_Rate')
-    plt.bar(names, values, color = ['orange', 'red', 'yellow'])
-    plt.ylabel('EMPLOYEMENT RATE')
+    plt.bar(names, values, color = [color1, color2, color3])
     plt.xlabel('SECTOR OF UNIVERSITY')
-    plt.show()
+    plt.ylabel(ylab)
+    return plt.show()
 
 
-    #Hypothesis2
-    #print(finaldf.count())
-    calc(finaldf, 'Apps', 'Accept')
-    finaldf.insert(10, 'Accept_Rate', new_col)
-    sector_dataframes(finaldf)
-    calc_mean(public, privateP, privateNP, 'Accept_Rate', 'Accept_Rate', 'Accept_Rate')
-    plt.bar(names, values, color = ['navy', 'pink', 'purple'])
-    plt.ylabel('ACCEPTANCE RATE')
-    plt.xlabel('SECTOR OF UNIVERSITY')
-    plt.show()
 
+open_file("C:/Users/ssawai2/Desktop/Final/Colleges_and_Universities.csv","C:/Users/ssawai2/Desktop/Final/cc_institution_details.csv", "C:/Users/ssawai2/Desktop/Final/College_Data.csv")
+# Hypothesis1
+# Private universities have a higher success rate of students getting employed as compared to other sectors.
+finaldf = finaldf.astype({'TOT_ENROLL': float, 'TOT_EMP': float})
 
-# #Hypothesis3
-# finaldf = finaldf.astype({'F.Undergrad': float, 'P.Undergrad': float})
-#
-# result = finaldf['F.Undergrad'] > finaldf['P.Undergrad']
-#
-#
-# # plt.pie(result)
-# # plt.show()
+calc(finaldf, 'TOT_ENROLL', 'TOT_EMP')
+finaldf.insert(3, 'Emp_Rate', new_col)
+sector_dataframes(finaldf)
+calc_mean(public, privateNP, privateP, 'Emp_Rate', 'Emp_Rate', 'Emp_Rate')
+graph(p1, p2, p3, 'EMPLOYEMENT RATE', 'orange', 'red', 'yellow')
+
+#Hypothesis2
+# Private universities have higher rate of acceptance of applications as compared to other sectors
+calc(finaldf, 'Apps', 'Accept')
+finaldf.insert(10, 'Accept_Rate', new_col)
+sector_dataframes(finaldf)
+calc_mean(public, privateP, privateNP, 'Accept_Rate', 'Accept_Rate', 'Accept_Rate')
+graph(p1, p2, p3, 'ACCEPTANCE RATE', 'navy', 'pink', 'purple')
