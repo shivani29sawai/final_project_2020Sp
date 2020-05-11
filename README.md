@@ -6,7 +6,9 @@ Project type: Project II (Specifics for an Original Data Analysis)
 
 Data Sources:
 https://www.kaggle.com/yashgpt/us-college-data
+
 https://data.world/databeats/college-completion
+
 https://hifld-geoplatform.opendata.arcgis.com/datasets/colleges-and-universities/data
 
 Introduction:
