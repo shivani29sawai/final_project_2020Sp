@@ -1,6 +1,7 @@
 # final_project
 Each team creates a fork from this for their course project
-Created by: Shivani Sawai
+#Created by:
+Shivani Sawai
 
 Project type: Project II (Specifics for an Original Data Analysis)
 
@@ -19,9 +20,9 @@ Hypothesis 1: Private universities have a higher success rate of students gettin
 Conclusion for Hypothesis 1: According to the analysis the hypothesis is proven true as private for-profit sector of universities have higher rate of success of graduates getting employed.
 
 Hypothesis 2: Private universities have higher rate of acceptance of applications as compared to other sectors.
- 
+![](Screenshot%20(3).png)
 Conclusion for Hypothesis 2: According to the analysis the hypothesis is proven true as private for-profit sector has highest rate of accepting the student applications amongst all sectors.
 
 Hypothesis 3: There are a higher number of full-time students as compared to part-time students
- 
+![](Screenshot%20(4).png) 
 Conclusion for Hypothesis 3: According to the analysis the hypothesis is proven true as 97.3% of universities have higher number of full-time students as compared to part-time students.
