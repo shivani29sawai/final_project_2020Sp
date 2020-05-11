@@ -139,3 +139,20 @@ finaldf.insert(10, 'Accept_Rate', new_col)
 sector_dataframes(finaldf)
 calc_mean(public, privateP, privateNP, 'Accept_Rate', 'Accept_Rate', 'Accept_Rate')
 graph(p1, p2, p3, 'ACCEPTANCE RATE', 'navy', 'pink', 'purple')
+
+#Hypothesis3
+# Full-time vs Part-time Students
+finaldf = finaldf.astype({'F.Undergrad': float, 'P.Undergrad': float})
+result = finaldf['F.Undergrad'] > finaldf['P.Undergrad']
+#print(result)
+r = result.values.tolist()
+t = r.count(True)
+f = r.count(False)
+label = 'Universities with higher number of Full-time Students', 'Universities with higher number of Part-time Students'
+part = [(t/446)*100, (f/446)*100]
+fig1, ax1 = plt.subplots()
+ax1.pie(part, labels=label, autopct='%1.1f%%',
+         startangle=90)
+ax1.axis('equal')
+plt.show()
+
