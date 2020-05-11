@@ -15,7 +15,7 @@ Introduction:
 Selecting the universities is a difficult task in today’s world because of increasing competition for getting a good job. There are many factors to be considered while selecting a university for example the tuition fee, the success rate of getting a job for graduates, how are the faculties at universities and many more. Therefore, in this project I will analyze some factors which may help students to make decision for the selection of universities.
 
 Hypothesis 1: Private universities have a higher success rate of students getting employed as compared to other sectors.
-![](Screenshot(2).png)
+![](Screenshot%20(2).png)
 Conclusion for Hypothesis 1: According to the analysis the hypothesis is proven true as private for-profit sector of universities have higher rate of success of graduates getting employed.
 
 Hypothesis 2: Private universities have higher rate of acceptance of applications as compared to other sectors.
