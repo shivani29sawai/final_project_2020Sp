@@ -31,3 +31,6 @@ HYPOTHESIS 3: There are a higher number of full-time students as compared to par
 ![](Screenshot%20(4).png) 
 
 CONCLUSION FOR HYPOTHESIS 3: According to the analysis the hypothesis is proven true as 97.3% of universities have higher number of full-time students as compared to part-time students.
+
+
+NOTE- PLEASE RUN "UpdatedPR.ipynb" SCRIPT FILE FOR THE PROJECT.
